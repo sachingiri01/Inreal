@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import project from "../../public/project.jpg";
 
-export default function TaskPage()  {
+ function TaskpPage()  {
   const searchParams = useSearchParams();
   const taskId = searchParams.get("id");
   const router = useRouter();
@@ -145,3 +145,13 @@ export default function TaskPage()  {
 };
 
 
+
+
+
+export default function TaskPage() {
+  return (
+    <Suspense fallback={<div className="text-white p-4">Loading...</div>}>
+      <TaskpPage />
+    </Suspense>
+  );
+}
