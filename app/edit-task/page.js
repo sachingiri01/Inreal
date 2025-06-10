@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from 'react';
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Calendar, User, Flag, FileText, Plus } from "lucide-react";
@@ -48,8 +48,6 @@ function EditTaskContent(){
       }
     } catch (err) {
       setError("Failed to fetch the task. Please try again.");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -78,7 +76,7 @@ function EditTaskContent(){
   };
   useEffect(() => {
       fetchTask(taskId);
-  }, [])
+  }, [taskId])
   
 
   const handleUpdate = () => {
