@@ -1,11 +1,13 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Calendar, User, Flag, FileText, Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import project from "../../public/project.jpg";
-export default function addtask() {
-    const router=useRouter();
+
+export default function AddTask() {
+  const router = useRouter();
+
   const [task, setTask] = useState({
     title: '',
     description: '',
@@ -15,45 +17,44 @@ export default function addtask() {
     status: 'pending',
     priority: 'medium',
   });
-  const addtask=async(task)=>{
-     const res=await fetch('/api/add-task',{
-        method:"POST",
-        header:{
-            'Content-Type': 'application/json',
-        },
-        credentials:"include",
-        body:JSON.stringify(task)
-     })
-     const response=await res.json();
-     console.log("this is empty ", response);
-     
-     if(response.success){
-        alert(response.message);
-         router.push('/')
-     }else{
-        alert(response.message || 'Something went wrong, please try again later.');
-         router.push('/')
-     }
-  }
 
-  const handlechangeinput = (e) => {
+  const handleAddTask = async (task) => {
+    const res = await fetch('/api/add-task', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: "include",
+      body: JSON.stringify(task),
+    });
+
+    const response = await res.json();
+
+    if (response.success) {
+      alert(response.message);
+      router.push('/');
+    } else {
+      alert(response.message || 'Something went wrong, please try again later.');
+      router.push('/');
+    }
+  };
+
+  const handlechangeinput  = (e) => {
     const { name, value } = e.target;
-    setTask(prev => ({
+    setTask((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = async() => {
+  const handleSubmit = () => {
     if (!task.title || !task.description || !task.created_by) {
       alert('Please fill in all required fields');
       return;
     }
-    // resetForm();
-     addtask(task)  
+    handleAddTask(task);
   };
-
-  const resetForm = () => {
+    const resetForm = () => {
     setTask({
       title: '',
       description: '',

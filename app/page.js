@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from 'react';
 import project from "../public/project.jpg";
 import { useRouter } from 'next/navigation';
-const Home = () => {
+export default function Home(){
   const [tasks, setTasks] = useState([]);
   const router = useRouter();
   const [loading, setloading] = useState(false)
@@ -126,4 +126,3 @@ const Home = () => {
   );
 };
 
-export default Home;

@@ -1,10 +1,11 @@
-"use client"
-import React, { useState,useEffect } from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Calendar, User, Flag, FileText, Plus } from 'lucide-react';
+import { Calendar, User, Flag, FileText, Plus } from "lucide-react";
 import project from "../../public/project.jpg";
-export default function addtask() {
+
+export default function EditTask() {
   const [task, setTask] = useState({
     id: '',
     title: '',
