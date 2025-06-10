@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Calendar, User, Flag, FileText, Plus } from "lucide-react";
 import project from "../../public/project.jpg";
 
-export default function EditTask() {
+function EditTaskContent(){
   const [task, setTask] = useState({
     id: '',
     title: '',
@@ -256,5 +256,13 @@ export default function EditTask() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function EditTaskPage() {
+  return (
+    <Suspense fallback={<div className="text-white p-4">Loading...</div>}>
+      <EditTaskContent />
+    </Suspense>
   );
 }
