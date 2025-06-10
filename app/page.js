@@ -70,7 +70,7 @@ const Home = () => {
           >
             {/* {task.image_url && ( */}
               <Image
-                src={project}
+              src={project}
                 height={160}
                 width={400}
                 alt={task.title}

@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import project from "../../public/project.jpg";
 
-const TaskPage = () => {
+export default function TaskPage()  {
   const searchParams = useSearchParams();
   const taskId = searchParams.get("id");
   const router = useRouter();
@@ -144,4 +144,4 @@ const TaskPage = () => {
   );
 };
 
-export default TaskPage;
+

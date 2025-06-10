@@ -1,7 +1,8 @@
 "use client"
 import React, { useState,useEffect } from 'react';
+import Image from 'next/image';
 import { useSearchParams, useRouter } from "next/navigation";
-import { Calendar, User, Flag, Image, FileText, Plus } from 'lucide-react';
+import { Calendar, User, Flag, FileText, Plus } from 'lucide-react';
 import project from "../../public/project.jpg";
 export default function addtask() {
   const [task, setTask] = useState({
@@ -161,28 +162,26 @@ export default function addtask() {
 
               <div className="space-y-2">
                 <label className="flex items-center text-slate-200 font-medium mb-2">
-                  <Image className="w-4 h-4 mr-2" />
                   Image URL
                 </label>
                 <input
                   type="url"
                   name="image_url"
-                  value={task.image_url}
+                  value={task.image_url? task.image_url : 'No Url Provided'}
                   onChange={handlechangeinput}
                   className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent transition-all duration-200"
                 />
-                {task.image_url && (
-                  <div className="mt-2 p-2 bg-slate-700/30 rounded-lg">
-                    <img 
+                {/* {task.image_url && ( */}
+                  {/* <div className="mt-2 p-2 bg-slate-700/30 rounded-lg">
+                    <Image
                       src={task.image_url} 
+                      height={400}
+                      width={400}
                       alt="Preview" 
-                      className="w-full h-32 object-cover rounded-md"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
+                      className=" object-cover rounded-md"
                     />
-                  </div>
-                )}
+                  </div> */}
+                {/* )} */}
               </div>
             </div>
 
@@ -241,7 +240,7 @@ export default function addtask() {
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <button
                 onClick={handleUpdate}
-                className="flex-1 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-800"
+                className="flex-1 bg-gradient-to-r from-slate-600 to-slate-500 hover:from-slate-500 hover:to-slate-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 cursor-pointer transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-800"
               >
                 Update Task
               </button>
