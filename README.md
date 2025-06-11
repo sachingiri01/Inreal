@@ -4,6 +4,13 @@ Live Link :https://inreal-live.vercel.app/
 Inreal is a sleek, modern task management application built with **Next.js 14**, offering a responsive UI, task tracking, and update features with smooth integration using REST APIs.
 live link : 
 ---
+## Use
+-Home Page 
+-Click On Task To veiw More
+-Two Option either delete or edit
+-if clicked on edit -task data is fetched automatically and filled in the form
+-if delete clicked task deleted
+-add task button on home page to add more task
 
 ## 🚀 Features
 
@@ -23,7 +30,7 @@ live link :
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide-react
 - **Backend API**: Next.js API Routes
-- **Database**: (Assumed: MongoDB or PostgreSQL – configure as needed)
+- **Database**: ( PostgreSQL – configure as needed)
 
 ---
 
