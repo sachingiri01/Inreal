@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 export default function Home(){
   const [tasks, setTasks] = useState([]);
   const router = useRouter();
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(true)
    const fecthing =async()=>{
       const data=await fetch("api/fetch-task",{
       method:"GET",
